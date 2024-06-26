@@ -15,6 +15,12 @@ class CitationList(generics.ListAPIView):
     serializer_class = CitationSerializer
 
 # @csrf_exempt
+class CitationDetail(generics.RetrieveAPIView):
+    queryset = Citation.objects.all()
+    serializer_class = CitationSerializer
+    lookup_field = 'pk'
+
+# @csrf_exempt
 class CitationCreate(generics.CreateAPIView):
 
     def post(self, request, format=None):
