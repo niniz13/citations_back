@@ -4,4 +4,4 @@ from .models import Citation
 class CitationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Citation
-        fields = ['id', 'auteur', 'description', 'date']
+        fields = ['id', 'auteur', 'description', 'date', 'score']

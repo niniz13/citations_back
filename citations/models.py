@@ -12,6 +12,7 @@ class Citation(models.Model):
     auteur = models.CharField(max_length=50, choices=AuteurChoices.choices)
     description = models.CharField(max_length=500, null=True)
     date = models.DateField()
+    score = models.IntegerField()
 
     def __str__(self):
         return f"Citation {self.description} by {self.auteur}"

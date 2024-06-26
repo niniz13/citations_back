@@ -29,3 +29,13 @@ class CitationDelete(generics.DestroyAPIView):
     queryset = Citation.objects.all()
     serializer_class = CitationSerializer
     lookup_field = 'pk'
+
+# @csrf_exempt
+class CitationUpdate(generics.UpdateAPIView):
+    queryset = Citation.objects.all()
+    serializer_class = CitationSerializer
+    lookup_field = 'pk'
+
+    def patch(self, request, *args, **kwargs):
+        kwargs['partial'] = True
+        return self.update(request, *args, **kwargs)
